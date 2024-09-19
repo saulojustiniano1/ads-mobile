@@ -9,7 +9,7 @@
   
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/saulojustiniano1/ads-mobile.svg" />
 
-  <a href="https://github.com/saulojustiniano1/esports-community/commits/master">
+  <a href="https://github.com/saulojustiniano1/ads-mobile/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/saulojustiniano1/ads-mobile.svg" />
   </a>
   
