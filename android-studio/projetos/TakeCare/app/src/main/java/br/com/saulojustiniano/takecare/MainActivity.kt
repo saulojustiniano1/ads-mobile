@@ -1,6 +1,5 @@
 package br.com.saulojustiniano.takecare
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,12 +13,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -66,7 +66,7 @@ fun Greeting(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxSize()
                 .background(color = Color(0xFF35ABA4))
-                .alpha(0.2f)
+                .alpha(0.1f)
         )
         Row {
             Column(
@@ -78,21 +78,20 @@ fun Greeting(modifier: Modifier = Modifier) {
                 Row (
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 60.dp),
                 ) {
                     Text(
                         text = "Tutor",
-                        fontSize = 30.sp,
+                        fontSize = 40.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.White,
                         modifier = Modifier
+                            .fillMaxWidth()
                             .background(
-                                color = Color(0xFF215954),
-                                shape = RoundedCornerShape(10.dp)
+                                color = Color(0xFF215954)
                             )
                             .padding(
-                                horizontal = 83.dp,
-                                vertical = 8.dp
+                                horizontal = 130.dp,
+                                vertical = 14.dp
                             )
                     )
                 }
@@ -134,34 +133,30 @@ fun Greeting(modifier: Modifier = Modifier) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFieldWithLabel(label: String) {
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(12.dp)
-    ) {
-        Text(
-            text = label,
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier
-                .padding(bottom = 6.dp)
-        )
-        androidx.compose.material3.TextField(
-            value = "",
-            onValueChange = {},
-            modifier = Modifier
-                .background(
-                    color = Color(0xFFFFFFFF),
-                    shape = RoundedCornerShape(20.dp)
-                )
-                .alpha(0.5f)
-                .fillMaxWidth()
-        )
-    }
+    OutlinedTextField(
+        value = " ",
+        onValueChange = {},
+        label = {
+            Text(
+                text = label,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.White
+            )
+        },
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = Color.White,  // Cor do contorno quando focado
+            unfocusedBorderColor = Color.White // Cor do contorno quando não focado
+        ),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+    )
 }
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MyApp(){
     TakeCareTheme {
@@ -171,6 +166,6 @@ fun MyApp(){
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun TakeCare() {
     MyApp()
 }
